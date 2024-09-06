@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String ID_COLUMN = "id";
     public static final String DATA_COLUMN = "data";
 
-    private static  final String CREATE_TABLE = String.format("CREATE TABLE %s"
+    private static  final String CREATE_TABLE = String.format("CREATE TABLE IF NOT EXISTS %s"
             + " (%s INTEGER PRIMARY KEY AUTOINCREMENT, "
             + " %s TEXT NOT NULL)",
             TABLE_NAME,

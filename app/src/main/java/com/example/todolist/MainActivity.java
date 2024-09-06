@@ -39,20 +39,17 @@ public class MainActivity extends AppCompatActivity {
         helper = new DBHelper(this.getApplicationContext());
 
         list = getListContent();
-        Log.e("Coba", list.get(1).getData());
         showRecycleList();
 
     }
 
     public ArrayList<Content> getListContent(){
         List<Content> dataContent = helper.getAllData();
-        if (dataContent.isEmpty()){
-            return new ArrayList<Content>();
-        }else {
-            ArrayList<Content> data = new ArrayList<>();
+        ArrayList<Content> data = new ArrayList<>();
+        if (!dataContent.isEmpty()){
             data.addAll(dataContent);
-            return data;
         }
+        return data;
     }
 
     private void showRecycleList(){
