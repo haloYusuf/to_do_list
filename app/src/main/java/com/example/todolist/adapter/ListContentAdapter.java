@@ -1,5 +1,6 @@
 package com.example.todolist.adapter;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,12 +35,14 @@ public class ListContentAdapter extends RecyclerView.Adapter<ListContentAdapter.
         holder.tvContent.setText(content.getData());
 
         holder.btnHapus.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onClick(View view) {
                 DBHelper helper = new DBHelper(view.getContext());
                 helper.deleteData(content);
-                listContent.remove(position);
-                
+                listContent.clear();
+                listContent.addAll(helper.getAllData());
+                notifyDataSetChanged();
             }
         });
 
