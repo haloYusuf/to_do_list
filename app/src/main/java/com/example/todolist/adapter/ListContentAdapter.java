@@ -56,7 +56,7 @@ public class ListContentAdapter extends RecyclerView.Adapter<ListContentAdapter.
             public void onClick(View view) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setTitle("Title");
+                builder.setTitle("Edit Data");
                 // Set up the input
                 final EditText input = new EditText(view.getContext());
                 input.setText(content.getData());
