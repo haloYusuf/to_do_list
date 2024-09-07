@@ -69,6 +69,15 @@ public class DBHelper extends SQLiteOpenHelper {
         return listaAll;
     }
 
+    public int updateData(Content content){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(DATA_COLUMN, content.getData());
+
+        int data = db.update(TABLE_NAME, cv, "id = ?", new String[]{String.valueOf(content.getId())});
+        return data;
+    }
+
     public void deleteData(Content content){
         SQLiteDatabase db = getWritableDatabase();
         db.delete(TABLE_NAME, "id = ?", new String[]{String.valueOf(content.getId())});
